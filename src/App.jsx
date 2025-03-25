@@ -100,7 +100,6 @@ const GCSEPlanner = () => {
             revisionEvents.push({ title: `Revise ${subject}`, date: dayBefore, time: slot, color: '#1E40AF' });
             sessionMap[dayBefore].push(subject);
             break;
-          }
         }
 
     // Balanced revision between 4th–21st April
@@ -118,8 +117,6 @@ const GCSEPlanner = () => {
             revisionEvents.push({ title: `Revise ${subject}`, date: key, time: slots[i], color: '#3B82F6' });
             sessionMap[key].push(subject);
             roundRobinIndex++;
-          }
-        }
       }
 
     // Focused post-Easter revision
@@ -137,9 +134,6 @@ const GCSEPlanner = () => {
               revisionEvents.push({ title: `Revise ${subject}`, date: key, time: slot, color: '#60A5FA' });
               sessionMap[key].push(subject);
               break;
-            }
-          }
-        }
       }
 
     return revisionEvents;
@@ -167,5 +161,12 @@ const GCSEPlanner = () => {
           status: 'CONFIRMED'
         };
       } else {
+        const [hour, minute] = (e.time || '09:00').split(':').map(Number);
+        return {
+          start: [year, month, day, hour, minute],
+          duration: { hours: 1 },
+          title: e.title,
+          status: 'CONFIRMED'
+        };
       }
       }
