@@ -165,7 +165,6 @@ const GCSEPlanner = () => {
           start: [year, month, day],
           title: e.title,
           status: 'CONFIRMED'
-        };
       } else {
         const [hour, minute] = (e.time || '09:00').split(':').map(Number);
         return {
@@ -175,14 +174,13 @@ const GCSEPlanner = () => {
           status: 'CONFIRMED'
         };
       }
-      const [year, month, day] = e.date.split('-').map(Number);
+      }
       const [hour, minute] = (e.time || '09:00').split(':').map(Number);
       return {
         start: [year, month, day, hour, minute],
         duration: { hours: 1 },
         title: e.title,
         status: 'CONFIRMED'
-        };
 
     createEvents(allEvents, (error, value) => {
       if (error) return console.error(error);
