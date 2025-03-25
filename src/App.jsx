@@ -165,6 +165,7 @@ const GCSEPlanner = () => {
           start: [year, month, day],
           title: e.title,
           status: 'CONFIRMED'
+        };
       } else {
         const [hour, minute] = (e.time || '09:00').split(':').map(Number);
         return {
