@@ -169,4 +169,28 @@ const GCSEPlanner = () => {
           status: 'CONFIRMED'
         };
       }
+    });
+
+    createEvents(allEvents, (error, value) => {
+      if (error) {
+        console.log(error);
+        return;
       }
+      const blob = new Blob([value], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'gcse_revision_schedule.ics';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+      } else {
+        const [hour, minute] = (e.time || '09:00').split(':').map(Number);
+        return {
+          start: [year, month, day, hour, minute],
+          duration: { hours: 1 },
+          title: e.title,
+          status: 'CONFIRMED'
+        };
+    });
