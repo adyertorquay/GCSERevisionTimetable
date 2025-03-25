@@ -40,6 +40,7 @@ const examDates = {
   'Food Tech': ['2025-06-06'],
   'Design Technology': ['2025-06-18'],
   'Hospitality & Catering': ['2025-05-07']
+};
 
 const GCSEPlanner = () => {
   const calendarRef = useRef();
