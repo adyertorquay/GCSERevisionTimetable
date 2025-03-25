@@ -17,7 +17,8 @@ const allSubjects = [
 
 const examTimes = {
   
-};
+  });
+  };
 
 const examDates = {
   'Health and Social': ['2025-05-06'],
