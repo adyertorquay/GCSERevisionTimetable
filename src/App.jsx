@@ -15,9 +15,6 @@ const allSubjects = [
   'Sport', 'Design Technology', 'Media Studies', 'Hospitality & Catering'
 ];
 
-const examTimes = {
-  
-  });
   };
 
 const examDates = {
