@@ -159,8 +159,6 @@ const GCSEPlanner = () => {
           start: [year, month, day],
           title: e.title,
           status: 'CONFIRMED'
-        };
-      } else {
         const [hour, minute] = (e.time || '09:00').split(':').map(Number);
         return {
           start: [year, month, day, hour, minute],
@@ -184,8 +182,6 @@ const GCSEPlanner = () => {
       link.click();
       document.body.removeChild(link);
     });
-  };
-      } else {
         const [hour, minute] = (e.time || '09:00').split(':').map(Number);
         return {
           start: [year, month, day, hour, minute],
