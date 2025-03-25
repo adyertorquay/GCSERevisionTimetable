@@ -54,6 +54,7 @@ const GCSEPlanner = () => {
   const [selectedSubjects, setSelectedSubjects] = useState([]);
   const [availability, setAvailability] = useState({
     Monday: [], Tuesday: [], Wednesday: [], Thursday: [], Friday: [], Saturday: [], Sunday: []
+  });
 
   const timeSlots = [
     '08:00', '09:00', '10:00', '11:00',
