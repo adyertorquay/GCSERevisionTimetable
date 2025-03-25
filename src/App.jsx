@@ -15,7 +15,6 @@ const allSubjects = [
   'Sport', 'Design Technology', 'Media Studies', 'Hospitality & Catering'
 ];
 
-  };
 
 const examDates = {
   'Health and Social': ['2025-05-06'],
@@ -41,7 +40,6 @@ const examDates = {
   'Food Tech': ['2025-06-06'],
   'Design Technology': ['2025-06-18'],
   'Hospitality & Catering': ['2025-05-07']
-};
 
 const GCSEPlanner = () => {
   const calendarRef = useRef();
@@ -66,13 +64,11 @@ const GCSEPlanner = () => {
       if (updated.has(time)) updated.delete(time);
       else updated.add(time);
       return { ...prev, [day]: [...updated].sort() };
-  };
 
   const toggleSubject = subject => {
     setSelectedSubjects(prev =>
       prev.includes(subject) ? prev.filter(s => s !== subject) : [...prev, subject]
     );
-  };
 
   const generateRevisionEvents = () => {
     const revisionEvents = [];
@@ -146,7 +142,6 @@ const GCSEPlanner = () => {
       }
 
     return revisionEvents;
-  };
 
   const examEvents = Object.entries(examDates).flatMap(([subject, dates]) =>
     selectedSubjects.includes(subject)
@@ -169,7 +164,6 @@ const GCSEPlanner = () => {
           start: [year, month, day],
           title: e.title,
           status: 'CONFIRMED'
-        };
       } else {
         const [hour, minute] = (e.time || '09:00').split(':').map(Number);
         return {
@@ -177,7 +171,6 @@ const GCSEPlanner = () => {
           duration: { hours: 1 },
           title: e.title,
           status: 'CONFIRMED'
-        };
       }
       const [year, month, day] = e.date.split('-').map(Number);
       const [hour, minute] = (e.time || '09:00').split(':').map(Number);
@@ -186,7 +179,6 @@ const GCSEPlanner = () => {
         duration: { hours: 1 },
         title: e.title,
         status: 'CONFIRMED'
-      };
 
     createEvents(allEvents, (error, value) => {
       if (error) return console.error(error);
@@ -196,7 +188,6 @@ const GCSEPlanner = () => {
       a.href = url;
       a.download = 'gcse-timetable.ics';
       a.click();
-  };
 
   return (
     <div className="p-6 font-sans">
@@ -259,6 +250,5 @@ const GCSEPlanner = () => {
       </div>
     </div>
   );
-};
 
 export default GCSEPlanner;
