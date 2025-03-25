@@ -15,6 +15,10 @@ const allSubjects = [
   'Sport', 'Design Technology', 'Media Studies', 'Hospitality & Catering'
 ];
 
+const examTimes = {
+
+};
+
 const examDates = {
   'Health and Social': ['2025-05-06'],
   Construction: ['2025-05-06'],
