@@ -172,6 +172,23 @@ const GCSEPlanner = () => {
   const exportICS = () => {
     const allEvents = [...examEvents, ...revisionEvents].map(e => {
       const [year, month, day] = e.date.split('-').map(Number);
+      if (e.title.includes('Exam')) {
+        return {
+          start: [year, month, day],
+          title: e.title,
+          status: 'CONFIRMED'
+        };
+      } else {
+        const [hour, minute] = (e.time || '09:00').split(':').map(Number);
+        return {
+          start: [year, month, day, hour, minute],
+          duration: { hours: 1 },
+          title: e.title,
+          status: 'CONFIRMED'
+        };
+      }
+    });
+      const [year, month, day] = e.date.split('-').map(Number);
       const [hour, minute] = (e.time || '09:00').split(':').map(Number);
       return {
         start: [year, month, day, hour, minute],
