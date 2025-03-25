@@ -15,15 +15,6 @@ const allSubjects = [
   'Sport', 'Design Technology', 'Media Studies', 'Hospitality & Catering'
 ];
 
-const examTimes = {
-  '2025-05-06': { subject: 'Construction', time: '09:00' },
-  '2025-05-09': { subject: 'Business', time: '13:30' },
-  '2025-05-13': { subject: 'Biology', time: '09:00' },
-  '2025-05-14': { subject: 'Geography', time: '13:30' },
-  '2025-05-15': { subject: 'Maths', time: '09:00' },
-  // Add more times here based on full list
-};
-
 const examDates = {
   'Health and Social': ['2025-05-06'],
   Construction: ['2025-05-06'],
