@@ -54,7 +54,6 @@ const GCSEPlanner = () => {
   const [selectedSubjects, setSelectedSubjects] = useState([]);
   const [availability, setAvailability] = useState({
     Monday: [], Tuesday: [], Wednesday: [], Thursday: [], Friday: [], Saturday: [], Sunday: []
-  });
 
   const timeSlots = [
     '08:00', '09:00', '10:00', '11:00',
@@ -68,7 +67,6 @@ const GCSEPlanner = () => {
       if (updated.has(time)) updated.delete(time);
       else updated.add(time);
       return { ...prev, [day]: [...updated].sort() };
-    });
   };
 
   const toggleSubject = subject => {
@@ -89,7 +87,6 @@ const GCSEPlanner = () => {
       const dayName = format(day, 'EEEE');
       daySlots[key] = availability[dayName] || [];
       sessionMap[key] = [];
-    });
 
     const examSchedule = selectedSubjects.map(subject => {
       const exams = (examDates[subject] || []).map(parseISO);
@@ -109,8 +106,6 @@ const GCSEPlanner = () => {
             break;
           }
         }
-      });
-    });
 
     // Balanced revision between 4th–21st April
     let roundRobinIndex = 0;
@@ -130,7 +125,6 @@ const GCSEPlanner = () => {
           }
         }
       }
-    });
 
     // Focused post-Easter revision
     revisionDays.forEach(day => {
@@ -151,7 +145,6 @@ const GCSEPlanner = () => {
           }
         }
       }
-    });
 
     return revisionEvents;
   };
@@ -187,7 +180,6 @@ const GCSEPlanner = () => {
           status: 'CONFIRMED'
         };
       }
-    });
       const [year, month, day] = e.date.split('-').map(Number);
       const [hour, minute] = (e.time || '09:00').split(':').map(Number);
       return {
@@ -196,7 +188,6 @@ const GCSEPlanner = () => {
         title: e.title,
         status: 'CONFIRMED'
       };
-    });
 
     createEvents(allEvents, (error, value) => {
       if (error) return console.error(error);
@@ -206,7 +197,6 @@ const GCSEPlanner = () => {
       a.href = url;
       a.download = 'gcse-timetable.ics';
       a.click();
-    });
   };
 
   return (
